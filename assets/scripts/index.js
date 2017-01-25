@@ -12,12 +12,20 @@ $(() => {
 
 // use require without a reference to ensure a file is bundled
 const ticTacToe = require('./example.js');
-let activePlayer = ticTacToe.players;
+let PlayerOne = "X";
+let PlayerTwo = "O";
+let currentTurn = PlayerOne;
 
 window.ticTacToe = ticTacToe;
 $('.field').on('click', function(){
   // let player = ticTacToe.players;
   let position = $(this).attr('data-position');
 
-  ticTacToe.makeMove(position, activePlayer);
+  ticTacToe.makeMove(position, currentTurn);
+});
+
+let board = document.querySelector('.board');
+board.addEventListener('click', function (e){
+  e.target.innerHTML = currentTurn;
+  currentTurn = currentTurn === PlayerOne ? PlayerTwo : PlayerOne;
 });
