@@ -26,6 +26,7 @@ $('.field').on('click', function(){
 
 let board = document.querySelector('.board');
 board.addEventListener('click', function (e){
-  e.target.innerHTML = currentTurn;
-  currentTurn = currentTurn === PlayerOne ? PlayerTwo : PlayerOne;
+  if (e.target.innerHTML !== "X" && "O") {
+    e.target.innerHTML = currentTurn;
+} currentTurn = currentTurn === PlayerOne ? PlayerTwo : PlayerOne;
 });
