@@ -33,62 +33,82 @@
         </div>
       </div>
 
-
-      <div class="userInfo">
-        <form id="sign-up">
-                <fieldset>
-                  <legend>Sign up!</legend>
-                    <label>
-                    Email
-                    <input type="text" name="credentials[email]">
-                    </label>
-                    <label>
-                    Password
-                    <input type="password" name="credentials[password]">
-                    </label>
-                    <label>
-                    Password Confirmtion
-                    <input type="password" name="credentials[password_confirmation]">
-                    </label>
-                  <input type="submit" name="submit" value="Sign up!">
-                </fieldset>
-              </form>
-
-              <form id="sign-in">
-                <fieldset>
-                  <legend>Sign In!</legend>
-                    <label>
-                    Email
-                    <input type="text" name="credentials[email]">
-                    </label>
-                    <label>
-                    Password
-                    <input type="password" name="credentials[password]">
-                    </label>
-                  <input type="submit" name="submit" value="Sign In!">
-                </fieldset>
-              </form>
-
-              <form id="change-password">
-                <fieldset>
-                  <legend>Change Password</legend>
-                    <label>
-                    OLD
-                    <input type="text" name="passwords[new]">
-                    </label>
-                    <label>
-                    NEW
-                    <input type="text" name="passwords[old]">
-                    </label>
-                </fieldset>
-              </form>
-
-              <form id="sign-out">
-                <fieldset>
-                  <legend>Sign Out!</legend>
-                  <input type="submit" name="submit" value="Sign Out!">
-                </fieldset>
-              </form>
+      <!-- Button trigger modal -->
+      <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+        Sign In
+      </button>
+      <!-- Modal -->
+      <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="myModalLabel">User Info</h4>
             </div>
+            <div class="modal-body">
+              <div class="userInfo">
+                <form id="sign-up">
+                        <fieldset>
+                          <legend>Sign up!</legend>
+                            <label>
+                            Email
+                            <input type="text" name="credentials[email]">
+                            </label>
+                            <label>
+                            Password
+                            <input type="password" name="credentials[password]">
+                            </label>
+                            <label>
+                            Password Confirmtion
+                            <input type="password" name="credentials[password_confirmation]">
+                            </label>
+                          <input type="submit" name="submit" value="Sign up!">
+                        </fieldset>
+                      </form>
+
+                      <form id="sign-in">
+                        <fieldset>
+                          <legend>Sign In!</legend>
+                            <label>
+                            Email
+                            <input type="text" name="credentials[email]">
+                            </label>
+                            <label>
+                            Password
+                            <input type="password" name="credentials[password]">
+                            </label>
+                          <input type="submit" name="submit" value="Sign In!">
+                        </fieldset>
+                      </form>
+
+                      <form id="change-password">
+                        <fieldset>
+                          <legend>Change Password</legend>
+                            <label>
+                            OLD
+                            <input type="text" name="passwords[new]">
+                            </label>
+                            <label>
+                            NEW
+                            <input type="text" name="passwords[old]">
+                            </label>
+                        </fieldset>
+                      </form>
+
+                      <form id="sign-out">
+                        <fieldset>
+                          <legend>Sign Out!</legend>
+                          <input type="submit" name="submit" value="Sign Out!">
+                        </fieldset>
+                      </form>
+                    </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </body>
 </html>

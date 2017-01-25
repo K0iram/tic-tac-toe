@@ -1,5 +1,5 @@
 'use strict';
-const activePlayer = players.PLAYER_X;
+// const activePlayer = players.PLAYER_X;
 
 
 const gameBoard = {
@@ -33,12 +33,18 @@ const players = {
 
 
 const makeMove = function (position, player){
-  gameBoard[position] = activePlayer;
+  gameBoard[position] = player;
 
+  // // for (let i = 0; i < players.length; i++) {
+  // //   let activePlayer = players[i];
+  // //   if (makeMove[activePlayer] === "Player_X") {
+  // //
+  // //   }
+  // }
   if( checkWin(player) ){
     alert(player + ' has won!!!!!!!!!');
   } else {
-    console.log('no one has won yet!');
+    console.log('No one has won yet!');
   }
 
 };
