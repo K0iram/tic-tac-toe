@@ -11,62 +11,84 @@
       <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
-    <body class="container-fluid">
+
+    <body>
       <h1>Tic Tac Toe</h1>
-      <form id="sign-up">
-              <fieldset>
-                <legend>Sign up!</legend>
-                  <label>
-                  Email
-                  <input type="text" name="credentials[email]">
-                  </label>
-                  <label>
-                  Password
-                  <input type="password" name="credentials[password]">
-                  </label>
-                  <label>
-                  Password Confirmtion
-                  <input type="password" name="credentials[password_confirmation]">
-                  </label>
-                <input type="submit" name="submit" value="Sign up!">
-              </fieldset>
-            </form>
 
-            <form id="sign-in">
-              <fieldset>
-                <legend>Sign In!</legend>
-                  <label>
-                  Email
-                  <input type="text" name="credentials[email]">
-                  </label>
-                  <label>
-                  Password
-                  <input type="password" name="credentials[password]">
-                  </label>
-                <input type="submit" name="submit" value="Sign In!">
-              </fieldset>
-            </form>
+      <div class="board">
+        <div class="row">
+          <div class="col-xs-4 field"></div>
+          <div class="col-xs-4 field"></div>
+          <div class="col-xs-4 field"></div>
+        </div>
+        <div class="row">
+          <div class="col-xs-4 field"></div>
+          <div class="col-xs-4 field"></div>
+          <div class="col-xs-4 field"></div>
+        </div>
+        <div class="row">
+          <div class="col-xs-4 field"></div>
+          <div class="col-xs-4 field"></div>
+          <div class="col-xs-4 field"></div>
+        </div>
+      </div>
 
-            <form id="change-password">
-              <fieldset>
-                <legend>Change Password</legend>
-                  <label>
-                  OLD
-                  <input type="text" name="passwords[new]">
-                  </label>
-                  <label>
-                  NEW
-                  <input type="text" name="passwords[old]">
-                  </label>
-              </fieldset>
-            </form>
 
-            <form id="sign-out">
-              <fieldset>
-                <legend>Sign Out!</legend>
-                <input type="submit" name="submit" value="Sign Out!">
-              </fieldset>
-            </form>
+      <div class="userInfo">
+        <form id="sign-up">
+                <fieldset>
+                  <legend>Sign up!</legend>
+                    <label>
+                    Email
+                    <input type="text" name="credentials[email]">
+                    </label>
+                    <label>
+                    Password
+                    <input type="password" name="credentials[password]">
+                    </label>
+                    <label>
+                    Password Confirmtion
+                    <input type="password" name="credentials[password_confirmation]">
+                    </label>
+                  <input type="submit" name="submit" value="Sign up!">
+                </fieldset>
+              </form>
 
+              <form id="sign-in">
+                <fieldset>
+                  <legend>Sign In!</legend>
+                    <label>
+                    Email
+                    <input type="text" name="credentials[email]">
+                    </label>
+                    <label>
+                    Password
+                    <input type="password" name="credentials[password]">
+                    </label>
+                  <input type="submit" name="submit" value="Sign In!">
+                </fieldset>
+              </form>
+
+              <form id="change-password">
+                <fieldset>
+                  <legend>Change Password</legend>
+                    <label>
+                    OLD
+                    <input type="text" name="passwords[new]">
+                    </label>
+                    <label>
+                    NEW
+                    <input type="text" name="passwords[old]">
+                    </label>
+                </fieldset>
+              </form>
+
+              <form id="sign-out">
+                <fieldset>
+                  <legend>Sign Out!</legend>
+                  <input type="submit" name="submit" value="Sign Out!">
+                </fieldset>
+              </form>
+            </div>
     </body>
 </html>
