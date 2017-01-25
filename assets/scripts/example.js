@@ -1,4 +1,6 @@
 'use strict';
+const activePlayer = players.PLAYER_X;
+
 
 const gameBoard = {
   0: null,
@@ -16,15 +18,12 @@ const winningRows = [
   [0,1,2],
   [2,5,8],
   [6,7,8],
-  [0,3,5],
   [6,4,2],
   [0,4,8],
-  [0,1,2],
   [3,4,5],
   [6,7,8],
   [0,3,6],
-  [1,4,7],
-  [2,5,8]
+  [1,4,7]
 ];
 
 const players = {
@@ -32,13 +31,14 @@ const players = {
   PLAYER_O: "Player O"
 };
 
+
 const makeMove = function (position, player){
-  gameBoard[position] = player;
+  gameBoard[position] = activePlayer;
 
   if( checkWin(player) ){
-    console.log(player + 'has won!!!!!!!!!')
+    alert(player + ' has won!!!!!!!!!');
   } else {
-    console.log('no one has one yet')
+    console.log('no one has won yet!');
   }
 
 };
@@ -48,12 +48,12 @@ const checkWin = function (player) {
   for (let i = 0; i < winningRows.length; i++) {
     let positionStore = [];
     for (let y = 0; y < winningRows[i].length; y++) {
-      let currentPosition = winningRows[i][y]
+      let currentPosition = winningRows[i][y];
       if (gameBoard[currentPosition] === player){
         positionStore.push(player);
       }
-      if (positionStore.length > 1) {
-        playerHasWon = true
+      if (positionStore.length > 2) {
+        playerHasWon = true;
       }
     }
   }
