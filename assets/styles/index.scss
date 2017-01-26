@@ -7,6 +7,29 @@ h1 {
   text-align: center;
 }
 
+.btn-primary {
+  float:left;
+  margin-top: 15px;
+  margin-left: 25px;
+}
+
+.btn-danger {
+  margin-left: 350px;
+
+}
+
+.banner {
+  height: 75px;
+  width: 200px;
+  border: 2px solid black;
+  margin: 0 auto;
+  margin-top: 15px;
+  text-align: center;
+  font-size: 25px;
+  justify-content: center;
+  align-items: center;
+}
+
 .board {
   height: 600px;
   width: 600px;

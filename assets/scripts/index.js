@@ -39,6 +39,7 @@ $('.board').on('click', function (e){
 
 $(".btn-danger").on('click', function clear(){
 	$('.field').html("");
+  $('.banner').html("")
 
   ticTacToe.clearBoard();
 });

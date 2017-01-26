@@ -26,22 +26,10 @@ const winningRows = [
   [0,3,6],
   [1,4,7]
 ];
-
-const resetGame = [];
-
-
 // const players = {
 //   PLAYER_X: "Player X",
 //   PLAYER_O: "Player O"
 // };
-
-const makeMove = function (position, player){
-  if(checkWin() === false){
-  gameBoard[position] = player;
-  if( checkWin(player) ) {
-    console.log(player + ' has won!!!!');
-  }}
-};
 
 let playerHasWon = false;
 const checkWin = function (player) {
@@ -59,6 +47,14 @@ const checkWin = function (player) {
   }
 }
   return playerHasWon;
+};
+
+const makeMove = function (position, player){
+  if(checkWin() === false){
+  gameBoard[position] = player;
+  if( checkWin(player) ) {
+    $(".banner").text(player + " Wins!!");
+  }}
 };
 
 const clearBoard = function () {
