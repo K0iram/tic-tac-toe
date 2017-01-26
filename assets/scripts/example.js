@@ -1,7 +1,7 @@
 'use strict';
 // const activePlayer = players.PLAYER_X;
 
-const gameBoard = {
+let gameBoard = {
   0: null,
   1: null,
   2: null,
@@ -12,6 +12,8 @@ const gameBoard = {
   7: null,
   8: null,
 };
+
+// let emptyGameBoard = Object.assign({}, gameBoard);
 
 const winningRows = [
   [0,1,2],
@@ -53,11 +55,27 @@ const checkWin = function (player) {
       }
       if (positionStore.length > 2) {
         playerHasWon = true;
-      }
     }
   }
+}
   return playerHasWon;
 };
+
+const clearBoard = function () {
+  gameBoard = {
+    0: null,
+    1: null,
+    2: null,
+    3: null,
+    4: null,
+    5: null,
+    6: null,
+    7: null,
+    8: null,
+  };
+  playerHasWon = false;
+console.log(gameBoard);
+ };
 
 
 
@@ -67,6 +85,6 @@ module.exports = {
   winningRows,
   // players,
   makeMove,
-  checkWin
-
+  checkWin,
+  clearBoard
 };

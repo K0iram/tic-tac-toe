@@ -33,4 +33,6 @@ board.addEventListener('click', function (e){
 
 $(".btn-danger").on('click', function clear(){
 	$('.field').html("");
+
+  ticTacToe.clearBoard();
 });
