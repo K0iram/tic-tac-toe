@@ -18,16 +18,22 @@ let currentTurn = PlayerOne;
 
 
 $('.field').on('click', function(){
+  event.preventDefault();
   let position = $(this).attr('data-position');
 
   ticTacToe.makeMove(position, currentTurn);
 });
 
-let board = document.querySelector('.board');
-board.addEventListener('click', function (e){
+// let board = document.querySelector('.board');
+$('.board').on('click', function (e){
+  event.preventDefault();
   if (e.target.innerHTML !== "X" && e.target.innerHTML !== "O") {
     e.target.innerHTML = currentTurn;
     currentTurn = currentTurn === PlayerOne ? PlayerTwo : PlayerOne;
+  }
+  if (ticTacToe.checkWin() === true ) {
+    // $('.board').click(function(){return false;});
+    currentTurn = "";
   }
 });
 
