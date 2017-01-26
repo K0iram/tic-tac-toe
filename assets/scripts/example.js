@@ -34,7 +34,7 @@ const players = {
 const makeMove = function (position, player){
   gameBoard[position] = player;
   if( checkWin(player) ){
-    setTimeout(alert(player + ' has won!!!!!!!!!'), 60000);
+    console.log(player + ' has won!!!!!!!!!');
   } else {
     console.log('No one has won yet!');
   }

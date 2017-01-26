@@ -16,7 +16,7 @@ let PlayerOne = "X";
 let PlayerTwo = "O";
 let currentTurn = PlayerOne;
 
-window.ticTacToe = ticTacToe;
+// window.ticTacToe = ticTacToe;
 $('.field').on('click', function(){
   // let player = ticTacToe.players;
   let position = $(this).attr('data-position');
@@ -26,7 +26,15 @@ $('.field').on('click', function(){
 
 let board = document.querySelector('.board');
 board.addEventListener('click', function (e){
-  if (e.target.innerHTML !== "X" && "O") {
+  if (e.target.innerHTML !== "X" && e.target.innerHTML !== "O") {
     e.target.innerHTML = currentTurn;
-} currentTurn = currentTurn === PlayerOne ? PlayerTwo : PlayerOne;
+    currentTurn = currentTurn === PlayerOne ? PlayerTwo : PlayerOne;
+  }
 });
+
+$(".btn-danger").on('click', function clear(){
+	$('.field').html("");
+});
+
+// function clear() {
+      //  document.getElementById("goy").innerHTML = "";
