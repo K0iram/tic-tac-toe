@@ -16,9 +16,8 @@ let PlayerOne = "X";
 let PlayerTwo = "O";
 let currentTurn = PlayerOne;
 
-// window.ticTacToe = ticTacToe;
+
 $('.field').on('click', function(){
-  // let player = ticTacToe.players;
   let position = $(this).attr('data-position');
 
   ticTacToe.makeMove(position, currentTurn);
@@ -35,6 +34,3 @@ board.addEventListener('click', function (e){
 $(".btn-danger").on('click', function clear(){
 	$('.field').html("");
 });
-
-// function clear() {
-      //  document.getElementById("goy").innerHTML = "";

@@ -25,24 +25,25 @@ const winningRows = [
   [1,4,7]
 ];
 
-const players = {
-  PLAYER_X: "Player X",
-  PLAYER_O: "Player O"
-};
+const resetGame = [];
 
+
+// const players = {
+//   PLAYER_X: "Player X",
+//   PLAYER_O: "Player O"
+// };
 
 const makeMove = function (position, player){
+  if(checkWin() === false){
   gameBoard[position] = player;
-  if( checkWin(player) ){
-    console.log(player + ' has won!!!!!!!!!');
-  } else {
-    console.log('No one has won yet!');
-  }
-
+  if( checkWin(player) ) {
+    console.log(player + ' has won!!!!');
+  }}
 };
 
+let playerHasWon = false;
 const checkWin = function (player) {
-  let playerHasWon = false;
+
   for (let i = 0; i < winningRows.length; i++) {
     let positionStore = [];
     for (let y = 0; y < winningRows[i].length; y++) {
@@ -59,10 +60,12 @@ const checkWin = function (player) {
 };
 
 
+
+
 module.exports = {
   gameBoard,
   winningRows,
-  players,
+  // players,
   makeMove,
   checkWin
 
