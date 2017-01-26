@@ -12,12 +12,11 @@ $(() => {
 
 // use require without a reference to ensure a file is bundled
 const ticTacToe = require('./example.js');
-let PlayerOne = "X";
-let PlayerTwo = "O";
+let PlayerOne = 'X';
+let PlayerTwo = 'O';
 let currentTurn = PlayerOne;
 
-
-$('.field').on('click', function(){
+$('.field').on('click', function () {
   event.preventDefault();
   let position = $(this).attr('data-position');
 
@@ -25,21 +24,22 @@ $('.field').on('click', function(){
 });
 
 // let board = document.querySelector('.board');
-$('.board').on('click', function (e){
+$('.board').on('click', function (e) {
   event.preventDefault();
-  if (e.target.innerHTML !== "X" && e.target.innerHTML !== "O") {
+  if (e.target.innerHTML !== 'X' && e.target.innerHTML !== 'O') {
     e.target.innerHTML = currentTurn;
     currentTurn = currentTurn === PlayerOne ? PlayerTwo : PlayerOne;
   }
-  if (ticTacToe.checkWin() === true ) {
+
+  if (ticTacToe.checkWin() === true) {
     // $('.board').click(function(){return false;});
-    currentTurn = "";
+    currentTurn = '';
   }
 });
 
-$(".btn-danger").on('click', function clear(){
-	$('.field').html("");
-  $('.banner').html("")
+$('.btn-danger').on('click', function clear() {
+    $('.field').html('');
+    $('.banner').html('');
 
-  ticTacToe.clearBoard();
-});
+    ticTacToe.clearBoard();
+  });

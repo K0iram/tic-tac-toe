@@ -14,20 +14,23 @@ h1 {
 }
 
 .btn-danger {
-  margin-left: 350px;
-
+  font-weight: bolder;
+  color: black;
+  margin-left: auto;
+  align-items: center;
 }
 
 .banner {
-  height: 75px;
+  height: 50px;
   width: 200px;
   border: 2px solid black;
   margin: 0 auto;
-  margin-top: 15px;
+  margin-top: 35px;
   text-align: center;
-  font-size: 25px;
   justify-content: center;
   align-items: center;
+  font-size: 25px;
+  font-weight: bolder;
 }
 
 .board {
