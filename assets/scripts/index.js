@@ -2,9 +2,22 @@
 
 const setAPIOrigin = require('../../lib/set-api-origin');
 const config = require('./config');
+const authEvents = require('./auth/events.js');
+
+// On document ready
+$(() => {
+  authEvents.addHandlers();
+});
 
 $(() => {
   setAPIOrigin(location, config);
+
+  // when form is submitted then console log the input
+  $("form").on("submit", function(event){
+    event.preventDefault();
+    let input = $("#name").val();
+    console.log(input);
+  });
 });
 
 // use require with a reference to bundle the file and use it in this file
