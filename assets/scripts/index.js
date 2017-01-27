@@ -15,6 +15,7 @@ const ticTacToe = require('./example.js');
 let PlayerOne = 'X';
 let PlayerTwo = 'O';
 let currentTurn = PlayerOne;
+let gameOver = false;
 
 $('.field').on('click', function () {
   event.preventDefault();
@@ -26,20 +27,19 @@ $('.field').on('click', function () {
 // let board = document.querySelector('.board');
 $('.board').on('click', function (e) {
   event.preventDefault();
-  if (e.target.innerHTML !== 'X' && e.target.innerHTML !== 'O') {
+  if (e.target.innerHTML !== 'X' && e.target.innerHTML !== 'O' && !gameOver) {
     e.target.innerHTML = currentTurn;
     currentTurn = currentTurn === PlayerOne ? PlayerTwo : PlayerOne;
   }
 
-  if (ticTacToe.checkWin() === true) {
-    // $('.board').click(function(){return false;});
-    currentTurn = '';
-  }
+  gameOver = ticTacToe.checkWin();
 });
 
 $('.btn-danger').on('click', function clear() {
     $('.field').html('');
     $('.banner').html('');
+    gameOver = false;
+    currentTurn = PlayerOne;
 
     ticTacToe.clearBoard();
   });

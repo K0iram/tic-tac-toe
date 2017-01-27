@@ -14,7 +14,6 @@ let gameBoard = {
   8: null,
 };
 
-// let emptyGameBoard = Object.assign({}, gameBoard);
 
 const winningRows = [
   [0, 1, 2],
@@ -28,10 +27,6 @@ const winningRows = [
   [1, 4, 7],
 ];
 
-// const players = {
-//   PLAYER_X: "Player X",
-//   PLAYER_O: "Player O"
-// };
 
 let playerHasWon = false;
 const checkWin = function (player) {
@@ -42,6 +37,7 @@ const checkWin = function (player) {
       let currentPosition = winningRows[i][y];
       if (gameBoard[currentPosition] === player) {
         positionStore.push(player);
+        console.log(positionStore);
       }
 
       if (positionStore.length > 2) {
