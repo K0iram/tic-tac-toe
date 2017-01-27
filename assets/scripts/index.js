@@ -3,10 +3,12 @@
 const setAPIOrigin = require('../../lib/set-api-origin');
 const config = require('./config');
 const authEvents = require('./auth/events.js');
+const gamesetEvents = require('./gameset/events.js');
 
 // On document ready
 $(() => {
   authEvents.addHandlers();
+  gamesetEvents.addHandlers();
 });
 
 $(() => {
@@ -35,6 +37,7 @@ $('.field').on('click', function () {
   let position = $(this).attr('data-position');
 
   ticTacToe.makeMove(position, currentTurn);
+  // gamesetEvents.updateGame(position, currentTurn);
 });
 
 // let board = document.querySelector('.board');

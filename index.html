@@ -68,8 +68,19 @@
               </div>
 
       <div class="banner"></div>
+      <button class="col-md-12 btn btn-create" type="submit" data-toggle="create" data-target=".board">Play New Game!</button>
 
-
+      <div>
+        <button class="col-md-12 btn btn-show" type="submit" data-toggle="show" data-target=".board">Show Games</button>
+          <form id="show-game">
+              <fieldset>
+                  <label>
+                  Game ID
+                  <input type="text" name="game[id]">
+                  </label>
+              </fieldset>
+          </form>
+      </div>
       <h1>Tic Tac Toe</h1>
 
       <div class="board">
@@ -91,6 +102,7 @@
       </div>
 
       <button class="col-md-12 btn btn-danger" type="reset" data-toggle="reset" data-target=".board">Play Again!</button>
+
 
     </body>
 
