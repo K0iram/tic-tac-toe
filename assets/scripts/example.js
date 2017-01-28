@@ -1,5 +1,7 @@
 'use strict';
 
+const gameApi = require('./gameset/api');
+
 // const activePlayer = players.PLAYER_X;
 
 let gameBoard = {
@@ -73,7 +75,7 @@ const checkDraw = function (){
 };
 
 const checkGameOver = function (){
-  if (checkWin() || checkDraw()){
+  if (playerHasWon === true || draw === true){
     gameOver = true ;
   }
 
@@ -88,8 +90,9 @@ const makeMove = function (position, player) {
     if (checkDraw()) {
       $('.banner').text( "It's a draw!!").show();
     }
-
+      gameApi.updateGame(position, player, gameOver);
 };
+
 
 const clearBoard = function () {
   gameBoard = {

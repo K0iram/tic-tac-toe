@@ -34,9 +34,9 @@ const onShowGame = function (event) {
     .catch(ui.failure);
 };
 
-const OnUpdateGame = function (position, currentTurn) {
+const OnUpdateGame = function (position, currentTurn, gameOver) {
   event.preventDefault();
-  api.updateGame(position, currentTurn)
+  api.updateGame(position, currentTurn, gameOver)
   .then((response) => {
     store.game = response.game;
   })
@@ -44,15 +44,15 @@ const OnUpdateGame = function (position, currentTurn) {
     .catch(ui.failure);
 };
 
-const OnUpdateGameStatus = function (gameStatus) {
-  event.preventDefault();
-  api.updateGame(gameStatus)
-  .then((response) => {
-    store.game = response.game;
-  })
-    .then(ui.success)
-    .catch(ui.failure);
-};
+// const OnUpdateGameStatus = function () {
+//   event.preventDefault();
+//   api.updateGameStatus(gameStatus)
+//   .then((response) => {
+//     store.game = response.game;
+//   })
+//     .then(ui.success)
+//     .catch(ui.failure);
+// };
 
 
 
@@ -67,13 +67,10 @@ const addHandlers = () => {
     //if the game is over then the ignore rest fo function body
     if (gameOver) { return false; }
     let position = $(this).attr('data-position');
-    let gameStatus = ticTacToe.checkWin(currentTurn);
-    ticTacToe.makeMove(position, currentTurn);
-    OnUpdateGame(position, currentTurn);
-    OnUpdateGameStatus(gameStatus);
+    ticTacToe.makeMove(position, currentTurn, gameOver);
     if (event.target.innerHTML !== 'X' && event.target.innerHTML !== 'O' && !gameOver) {
       event.target.innerHTML = currentTurn;
-      gameOver = ticTacToe.checkWin(currentTurn) || ticTacToe.checkDraw();
+      gameOver = ticTacToe.checkGameOver(gameOver);
       //change player with ternary if currentturn = playerone than player two else player one
       currentTurn = currentTurn === PlayerOne ? PlayerTwo : PlayerOne;
     }
