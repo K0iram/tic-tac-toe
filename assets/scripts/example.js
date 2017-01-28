@@ -50,12 +50,18 @@ const checkWin = function (player) {
 };
 
 const checkDraw = function (){
-  let draw = true;
-  for (let i = 0; i < gameBoard.length; i++) {
-    if (gameBoard[i] === null ){
-      return false;
+  let draw;
+  const boardValues = Object.values(gameBoard)
+  for (let i = 0; i < boardValues.length; i++) {
+    if (boardValues[i] === null ){
+      draw = false;
+      break
+    } else if( i >= boardValues.length - 1){
+      draw = true;
     }
   }
+
+  return draw;
 };
 
 const makeMove = function (position, player) {
