@@ -4,7 +4,12 @@ const getFormFields = require(`../../../lib/get-form-fields`);
 
 const api = require('./api');
 const ui = require('./ui');
-const store = require('..//store');
+const store = require('../store');
+const ticTacToe = require('../example.js');
+let PlayerOne = 'X';
+let PlayerTwo = 'O';
+let currentTurn = PlayerOne;
+let gameOver = false;
 
 
 const onCreateGame = function (event) {
@@ -26,9 +31,9 @@ const onShowGame = function (event) {
     .catch(ui.failure);
 };
 
-const OnUpdateGame = function () {
+const OnUpdateGame = function (position, currentTurn, gameStatus) {
   event.preventDefault();
-  api.updateGame()
+  api.updateGame(position, currentTurn, gameStatus)
   .then((response) => {
     store.game = response.game;
   })
@@ -40,8 +45,42 @@ const OnUpdateGame = function () {
 const addHandlers = () => {
   $('.btn-create').on('click', onCreateGame);
   $('#show-game').on('submit', onShowGame);
-  $('.field').on('click', OnUpdateGame);
+
+  $('.field').on('click', function () {
+    event.preventDefault();
+    let position = $(this).attr('data-position');
+    let gameStatus = ticTacToe.checkWin();
+    ticTacToe.makeMove(position, currentTurn);
+    OnUpdateGame(position, currentTurn, gameStatus);
+  });
+
+  // let board = document.querySelector('.board');
+  $('.board').on('click', function (e) {
+    event.preventDefault();
+    if (e.target.innerHTML !== 'X' && e.target.innerHTML !== 'O' && !gameOver) {
+      e.target.innerHTML = currentTurn;
+      currentTurn = currentTurn === PlayerOne ? PlayerTwo : PlayerOne;
+    }
+
+    gameOver = ticTacToe.checkWin();
+  });
+
+  $('.btn-danger').on('click', function clear() {
+      $('.field').html('');
+      $('.banner').html('');
+      gameOver = false;
+      currentTurn = PlayerOne;
+
+      ticTacToe.clearBoard();
+    });
+
+  $("form").on("submit", function(event){
+    event.preventDefault();
+    let input = $("#name").val();
+    console.log(input);
+  });
 };
+
 
 module.exports = {
   addHandlers,

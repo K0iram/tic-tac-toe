@@ -23,11 +23,20 @@ const showGame = function (id){
   });
 };
 
-const updateGame = function () {
+const updateGame = function (position, currentTurn, gameStatus) {
   return $.ajax({
     url: config.apiOrigin + '/games/' + store.game.id,
     method: 'PATCH',
-    data: JSON.stringify({game: store.game}),
+    data: JSON.stringify({
+      game: {
+        cell: {
+          index: position,
+          value: currentTurn,
+        },
+        over: gameStatus
+
+      }
+    }),
     contentType: 'application/json',
     headers: {
        Authorization: `Token token=${store.user.token}`,
