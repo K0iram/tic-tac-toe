@@ -2,7 +2,7 @@
 
 // const activePlayer = players.PLAYER_X;
 
-let gameBoard = {
+const emptyGameBoard = {
   0: null,
   1: null,
   2: null,
@@ -13,7 +13,6 @@ let gameBoard = {
   7: null,
   8: null,
 };
-
 
 const winningRows = [
   [0, 1, 2],
@@ -27,8 +26,10 @@ const winningRows = [
   [1, 4, 7],
 ];
 
+let gameBoard = emptyGameBoard;
 
 
+//check each move for win
 const checkWin = function (player) {
   let playerHasWon = false;
   for (let i = 0; i < winningRows.length; i++) {
@@ -49,13 +50,17 @@ const checkWin = function (player) {
   return playerHasWon;
 };
 
+//check each move for draw
 const checkDraw = function (){
   let draw;
-  const boardValues = Object.values(gameBoard)
+  // get an array of values from gameboard object
+  const boardValues = Object.values(gameBoard);
+
   for (let i = 0; i < boardValues.length; i++) {
+    //iterates thru array to check for any empty space. empty space = no draw possible yet
     if (boardValues[i] === null ){
       draw = false;
-      break
+      //if no empty spaces have beeb found at end of array, the its a draw
     } else if( i >= boardValues.length - 1){
       draw = true;
     }
@@ -76,17 +81,7 @@ const makeMove = function (position, player) {
 };
 
 const clearBoard = function () {
-  gameBoard = {
-    0: null,
-    1: null,
-    2: null,
-    3: null,
-    4: null,
-    5: null,
-    6: null,
-    7: null,
-    8: null,
-  };
+  gameBoard = emptyGameBoard;
   console.log(gameBoard);
 };
 

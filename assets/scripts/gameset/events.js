@@ -15,9 +15,11 @@ let gameOver = false;
 const onCreateGame = function (event) {
   let data = getFormFields(event.target);
   event.preventDefault();
+  //as soon as i create a new game show the board
   $('.board').show();
   api.createGame(data)
   .then((response) => {
+    //take what we get from the sever and put in store
     store.game = response.game;
   })
     .then(ui.success)
@@ -49,19 +51,21 @@ const addHandlers = () => {
 
   $('.field').on('click', function () {
     event.preventDefault();
-    if (gameOver) { return false };
+    //if the game is over then the ignore rest fo function body
+    if (gameOver) { return false; }
     let position = $(this).attr('data-position');
-    let gameStatus = ticTacToe.checkWin();
+    let gameStatus = ticTacToe.checkWin(currentTurn);
     ticTacToe.makeMove(position, currentTurn);
     OnUpdateGame(position, currentTurn, gameStatus);
   });
 
-  // let board = document.querySelector('.board');
+//change players
   $('.board').on('click', function (e) {
-    event.preventDefault();
+    e.preventDefault();
     if (e.target.innerHTML !== 'X' && e.target.innerHTML !== 'O' && !gameOver) {
       e.target.innerHTML = currentTurn;
       gameOver = ticTacToe.checkWin(currentTurn) || ticTacToe.checkDraw();
+      //change player with ternary if currentturn = playerone than player two else player one
       currentTurn = currentTurn === PlayerOne ? PlayerTwo : PlayerOne;
     }
 

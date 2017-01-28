@@ -20,6 +20,7 @@ const onSignIn = function (event) {
   api.signIn(data)
     .then((response) => {
       store.user = response.user;
+      //keeps a copy of the user in local storage to keep  session open
       window.localStorage.setItem('user', JSON.stringify(response.user));
       return store.user;
     })
@@ -42,6 +43,7 @@ const onSignOut = function (event) {
   api.signOut()
     .then(() => {
       delete store.user;
+      // remove local storage user copy.
       window.localStorage.removeItem('user');
       return store;
     })
