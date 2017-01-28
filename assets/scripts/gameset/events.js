@@ -49,7 +49,7 @@ const addHandlers = () => {
   $('.btn-create').on('click', onCreateGame);
   $('#show-game').on('submit', onShowGame);
 
-  $('.field').on('click', function () {
+  $('.field').on('click', function (event) {
     event.preventDefault();
     //if the game is over then the ignore rest fo function body
     if (gameOver) { return false; }
@@ -57,6 +57,13 @@ const addHandlers = () => {
     let gameStatus = ticTacToe.checkWin(currentTurn);
     ticTacToe.makeMove(position, currentTurn);
     OnUpdateGame(position, currentTurn, gameStatus);
+    if (event.target.innerHTML !== 'X' && event.target.innerHTML !== 'O' && !gameOver) {
+      event.target.innerHTML = currentTurn;
+      gameOver = ticTacToe.checkWin(currentTurn) || ticTacToe.checkDraw();
+      //change player with ternary if currentturn = playerone than player two else player one
+      currentTurn = currentTurn === PlayerOne ? PlayerTwo : PlayerOne;
+    }
+
   });
 
 //change players
@@ -71,7 +78,7 @@ const addHandlers = () => {
 
   });
 
-  $('.btn-danger').on('click', function clear() {
+  $('.btn-create').on('click', function clear() {
       $('.field').html('');
       $('.banner').html('');
       gameOver = false;
