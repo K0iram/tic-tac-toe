@@ -23,12 +23,15 @@ const showGame = function (id){
   });
 };
 
-const updateGame = function (id) {
+const updateGame = function () {
   return $.ajax({
-    url: config.apiOrigin + '/games/' + id,
+    url: config.apiOrigin + '/games/' + store.game.id,
     method: 'PATCH',
+    data: JSON.stringify({game: store.game}),
+    contentType: 'application/json',
     headers: {
-       Authorization: `Token token=${store.user.token}`,}
+       Authorization: `Token token=${store.user.token}`,
+     }
   });
 };
 

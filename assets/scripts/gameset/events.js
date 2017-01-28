@@ -21,15 +21,17 @@ const onCreateGame = function (event) {
 const onShowGame = function (event) {
   let data = getFormFields(event.target);
   event.preventDefault();
-  api.showGame(data)
+  api.showGame(data.game.id)
     .then(ui.success)
     .catch(ui.failure);
 };
 
 const OnUpdateGame = function () {
-  let data = getFormFields(event.target);
   event.preventDefault();
-  api.updateGame(data)
+  api.updateGame()
+  .then((response) => {
+    store.game = response.game;
+  })
     .then(ui.success)
     .catch(ui.failure);
 };
@@ -37,7 +39,7 @@ const OnUpdateGame = function () {
 
 const addHandlers = () => {
   $('.btn-create').on('click', onCreateGame);
-  $('.btn-show').on('submit', onShowGame);
+  $('#show-game').on('submit', onShowGame);
   $('.field').on('click', OnUpdateGame);
 };
 

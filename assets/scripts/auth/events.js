@@ -20,6 +20,7 @@ const onSignIn = function (event) {
   api.signIn(data)
     .then((response) => {
       store.user = response.user;
+      window.localStorage.setItem('user', JSON.stringify(response.user))
       return store.user;
     })
 
