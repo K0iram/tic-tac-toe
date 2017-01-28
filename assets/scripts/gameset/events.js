@@ -11,6 +11,9 @@ const onCreateGame = function (event) {
   let data = getFormFields(event.target);
   event.preventDefault();
   api.createGame(data)
+  .then((response) => {
+    store.game = response.game;
+  })
     .then(ui.success)
     .catch(ui.failure);
 };
@@ -23,7 +26,7 @@ const onShowGame = function (event) {
     .catch(ui.failure);
 };
 
-const OnUpdateGame = function (event) {
+const OnUpdateGame = function () {
   let data = getFormFields(event.target);
   event.preventDefault();
   api.updateGame(data)
