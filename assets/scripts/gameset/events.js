@@ -34,15 +34,28 @@ const onShowGame = function (event) {
     .catch(ui.failure);
 };
 
-const OnUpdateGame = function (position, currentTurn, gameStatus) {
+const OnUpdateGame = function (position, currentTurn) {
   event.preventDefault();
-  api.updateGame(position, currentTurn, gameStatus)
+  api.updateGame(position, currentTurn)
   .then((response) => {
     store.game = response.game;
   })
     .then(ui.success)
     .catch(ui.failure);
 };
+
+const OnUpdateGameStatus = function (gameStatus) {
+  event.preventDefault();
+  api.updateGame(gameStatus)
+  .then((response) => {
+    store.game = response.game;
+  })
+    .then(ui.success)
+    .catch(ui.failure);
+};
+
+
+
 
 
 const addHandlers = () => {
@@ -56,7 +69,8 @@ const addHandlers = () => {
     let position = $(this).attr('data-position');
     let gameStatus = ticTacToe.checkWin(currentTurn);
     ticTacToe.makeMove(position, currentTurn);
-    OnUpdateGame(position, currentTurn, gameStatus);
+    OnUpdateGame(position, currentTurn);
+    OnUpdateGameStatus(gameStatus);
     if (event.target.innerHTML !== 'X' && event.target.innerHTML !== 'O' && !gameOver) {
       event.target.innerHTML = currentTurn;
       gameOver = ticTacToe.checkWin(currentTurn) || ticTacToe.checkDraw();
