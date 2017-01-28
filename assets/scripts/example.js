@@ -28,9 +28,9 @@ const winningRows = [
 ];
 
 
-let playerHasWon = false;
-const checkWin = function (player) {
 
+const checkWin = function (player) {
+  let playerHasWon = false;
   for (let i = 0; i < winningRows.length; i++) {
     let positionStore = [];
     for (let y = 0; y < winningRows[i].length; y++) {
@@ -49,13 +49,23 @@ const checkWin = function (player) {
   return playerHasWon;
 };
 
+const checkDraw = function (){
+  let draw = true;
+  for (let i = 0; i < gameBoard.length; i++) {
+    if (gameBoard[i] === false ){
+      draw = false;
+    }
+  }
+  return draw;
+};
+
 const makeMove = function (position, player) {
-  if (checkWin() === false) {
     gameBoard[position] = player;
     if (checkWin(player)) {
       $('.banner').text(player + ' Wins!!');
+    } else if (checkDraw()) {
+      $('.banner').text( "It's a draw!!");
     }
-  }
 
 };
 
@@ -71,7 +81,6 @@ const clearBoard = function () {
     7: null,
     8: null,
   };
-  playerHasWon = false;
   console.log(gameBoard);
 };
 
@@ -81,4 +90,5 @@ module.exports = {
   makeMove,
   checkWin,
   clearBoard,
+  checkDraw,
 };

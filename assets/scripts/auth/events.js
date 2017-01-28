@@ -20,7 +20,7 @@ const onSignIn = function (event) {
   api.signIn(data)
     .then((response) => {
       store.user = response.user;
-      window.localStorage.setItem('user', JSON.stringify(response.user))
+      window.localStorage.setItem('user', JSON.stringify(response.user));
       return store.user;
     })
 
@@ -42,6 +42,7 @@ const onSignOut = function (event) {
   api.signOut()
     .then(() => {
       delete store.user;
+      window.localStorage.removeItem('user');
       return store;
     })
     .then(ui.success)

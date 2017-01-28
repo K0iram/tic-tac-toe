@@ -48,6 +48,7 @@ const addHandlers = () => {
 
   $('.field').on('click', function () {
     event.preventDefault();
+    if (gameOver) { return false };
     let position = $(this).attr('data-position');
     let gameStatus = ticTacToe.checkWin();
     ticTacToe.makeMove(position, currentTurn);
@@ -59,10 +60,10 @@ const addHandlers = () => {
     event.preventDefault();
     if (e.target.innerHTML !== 'X' && e.target.innerHTML !== 'O' && !gameOver) {
       e.target.innerHTML = currentTurn;
+      gameOver = ticTacToe.checkWin(currentTurn) || !ticTacToe.checkDraw();
       currentTurn = currentTurn === PlayerOne ? PlayerTwo : PlayerOne;
     }
 
-    gameOver = ticTacToe.checkWin();
   });
 
   $('.btn-danger').on('click', function clear() {
