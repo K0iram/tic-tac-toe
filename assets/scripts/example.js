@@ -52,19 +52,19 @@ const checkWin = function (player) {
 const checkDraw = function (){
   let draw = true;
   for (let i = 0; i < gameBoard.length; i++) {
-    if (gameBoard[i] === false ){
-      draw = false;
+    if (gameBoard[i] === null ){
+      return false;
     }
   }
-  return draw;
 };
 
 const makeMove = function (position, player) {
     gameBoard[position] = player;
     if (checkWin(player)) {
-      $('.banner').text(player + ' Wins!!');
-    } else if (checkDraw()) {
-      $('.banner').text( "It's a draw!!");
+      $('.banner').text(player + ' Wins!!').show();
+    }
+    if (checkDraw()) {
+      $('.banner').text( "It's a draw!!").show();
     }
 
 };

@@ -15,6 +15,7 @@ let gameOver = false;
 const onCreateGame = function (event) {
   let data = getFormFields(event.target);
   event.preventDefault();
+  $('.board').show();
   api.createGame(data)
   .then((response) => {
     store.game = response.game;
@@ -60,7 +61,7 @@ const addHandlers = () => {
     event.preventDefault();
     if (e.target.innerHTML !== 'X' && e.target.innerHTML !== 'O' && !gameOver) {
       e.target.innerHTML = currentTurn;
-      gameOver = ticTacToe.checkWin(currentTurn) || !ticTacToe.checkDraw();
+      gameOver = ticTacToe.checkWin(currentTurn) || ticTacToe.checkDraw();
       currentTurn = currentTurn === PlayerOne ? PlayerTwo : PlayerOne;
     }
 
