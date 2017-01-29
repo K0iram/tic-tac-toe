@@ -23,6 +23,17 @@ const showGame = function (id){
   });
 };
 
+const indexGames = function (){
+  return $.ajax({
+    url: config.apiOrigin + '/games/',
+    method: 'GET',
+    headers: {
+      Authorization: `Token token=${store.user.token}`,
+    }
+  });
+};
+
+
 
 const updateGame = function (position, currentTurn, gameOver) {
   return $.ajax({
@@ -34,9 +45,7 @@ const updateGame = function (position, currentTurn, gameOver) {
           index: position,
           value: currentTurn,
         },
-        game: {
-          over: gameOver,
-        }
+        over: gameOver
       }
     }),
     contentType: 'application/json',
@@ -46,25 +55,10 @@ const updateGame = function (position, currentTurn, gameOver) {
   });
 };
 
-// const updateGameStatus = function (gameStatus) {
-//   return $.ajax({
-//     url: config.apiOrigin + '/games/' + store.game.id,
-//     method: 'PATCH',
-//     data: JSON.stringify({
-//       game: {
-//         over: gameStatus,
-//       }
-//     }),
-//     contentType: 'application/json',
-//     headers: {
-//        Authorization: `Token token=${store.user.token}`,
-//      }
-//   });
-// };
-
 module.exports = {
   createGame,
   showGame,
   updateGame,
+  indexGames,
   // updateGameStatus,
 };

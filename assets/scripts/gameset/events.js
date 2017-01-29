@@ -35,10 +35,9 @@ const onShowGame = function (event) {
     .catch(ui.failure);
 };
 
-const onindexGames = function (event) {
-  let data = getFormFields(event.target);
+const onIndexGame = function (event) {
   event.preventDefault();
-  api.indexGames(data.game.id)
+  api.indexGames()
     .then(ui.success)
     .catch(ui.failure);
 };
@@ -57,6 +56,7 @@ const OnUpdateGame = function (position, currentTurn, gameOver) {
 const addHandlers = () => {
   $('.btn-create').on('click', onCreateGame);
   $('#show-game').on('submit', onShowGame);
+  $('.btn-index').on('click', onIndexGame);
 
   $('.field').on('click', function (event) {
     event.preventDefault();
