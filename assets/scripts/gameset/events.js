@@ -14,6 +14,7 @@ let gameOver = false;
 
 const onCreateGame = function (event) {
   let data = getFormFields(event.target);
+  gameOver = false;
   event.preventDefault();
   //as soon as i create a new game show the board
   $('.board').show();
@@ -34,6 +35,14 @@ const onShowGame = function (event) {
     .catch(ui.failure);
 };
 
+const onindexGames = function (event) {
+  let data = getFormFields(event.target);
+  event.preventDefault();
+  api.indexGames(data.game.id)
+    .then(ui.success)
+    .catch(ui.failure);
+};
+
 const OnUpdateGame = function (position, currentTurn, gameOver) {
   event.preventDefault();
   api.updateGame(position, currentTurn, gameOver)
@@ -44,19 +53,6 @@ const OnUpdateGame = function (position, currentTurn, gameOver) {
     .catch(ui.failure);
 };
 
-// const OnUpdateGameStatus = function () {
-//   event.preventDefault();
-//   api.updateGameStatus(gameStatus)
-//   .then((response) => {
-//     store.game = response.game;
-//   })
-//     .then(ui.success)
-//     .catch(ui.failure);
-// };
-
-
-
-
 
 const addHandlers = () => {
   $('.btn-create').on('click', onCreateGame);
@@ -66,28 +62,24 @@ const addHandlers = () => {
     event.preventDefault();
     //if the game is over then the ignore rest fo function body
     if (gameOver) { return false; }
+
     let position = $(this).attr('data-position');
-    ticTacToe.makeMove(position, currentTurn, gameOver);
+
     if (event.target.innerHTML !== 'X' && event.target.innerHTML !== 'O' && !gameOver) {
       event.target.innerHTML = currentTurn;
-      gameOver = ticTacToe.checkGameOver(gameOver);
+
+      ticTacToe.makeMove(position, currentTurn);
+
+      gameOver = ticTacToe.checkGameOver(currentTurn);
+
+      console.log('CHECK GAME OVER:', ticTacToe.checkGameOver(currentTurn));
+
       //change player with ternary if currentturn = playerone than player two else player one
       currentTurn = currentTurn === PlayerOne ? PlayerTwo : PlayerOne;
     }
 
   });
 
-//change players
-  $('.board').on('click', function (e) {
-    e.preventDefault();
-    if (e.target.innerHTML !== 'X' && e.target.innerHTML !== 'O' && !gameOver) {
-      e.target.innerHTML = currentTurn;
-      gameOver = ticTacToe.checkWin(currentTurn) || ticTacToe.checkDraw();
-      //change player with ternary if currentturn = playerone than player two else player one
-      currentTurn = currentTurn === PlayerOne ? PlayerTwo : PlayerOne;
-    }
-
-  });
 
   $('.btn-create').on('click', function clear() {
       $('.field').html('');

@@ -28,13 +28,22 @@ const winningRows = [
   [1, 4, 7],
 ];
 
-let playerHasWon = false;
-let draw = false;
-let gameOver = false;
+
+const makeMove = function (position, player) {
+    gameBoard[position] = player;
+    if (checkWin(player)) {
+      $('.banner').text(player + ' Wins!!').show();
+    }
+    if (checkDraw()) {
+      $('.banner').text( "It's a draw!!").show();
+    }
+
+    gameApi.updateGame(position, player, checkGameOver(player) );
+};
 
 //check each move for win
 const checkWin = function (player) {
-  // let playerHasWon = false;
+  let playerHasWon = false;
   for (let i = 0; i < winningRows.length; i++) {
     let positionStore = [];
     for (let y = 0; y < winningRows[i].length; y++) {
@@ -55,7 +64,8 @@ const checkWin = function (player) {
 
 //check each move for draw
 const checkDraw = function (){
-  // let draw = false;
+  let draw = false;
+
   // get an array of values from gameboard object
   const boardValues = Object.values(gameBoard);
 
@@ -74,23 +84,8 @@ const checkDraw = function (){
   return draw;
 };
 
-const checkGameOver = function (){
-  if (playerHasWon === true || draw === true){
-    gameOver = true ;
-  }
-
-  return gameOver;
-};
-
-const makeMove = function (position, player) {
-    gameBoard[position] = player;
-    if (checkWin(player)) {
-      $('.banner').text(player + ' Wins!!').show();
-    }
-    if (checkDraw()) {
-      $('.banner').text( "It's a draw!!").show();
-    }
-      gameApi.updateGame(position, player, gameOver);
+const checkGameOver = function (currentTurn){
+  return checkWin(currentTurn) || checkDraw();
 };
 
 

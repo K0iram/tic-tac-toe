@@ -23,6 +23,7 @@ const showGame = function (id){
   });
 };
 
+
 const updateGame = function (position, currentTurn, gameOver) {
   return $.ajax({
     url: config.apiOrigin + '/games/' + store.game.id,
