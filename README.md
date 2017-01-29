@@ -29,6 +29,6 @@
 <p>In the future I would like to come back to this project and try to simplify the logic. I would also like to display the game in a way that is easier on the user. All in all this game was very challenging but I think I am now a stronger programmer because of it.
 </p>
 
-<a href="www.github.com">Play my game!</a>
+<a href="http://www.github.com">Play my game!</a>
 
-<a href="www.imagur.com">Check out my wire frames</a>
+<a href="http://www.imagur.com">Check out my wire frames</a>
