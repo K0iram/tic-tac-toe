@@ -2,10 +2,35 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
 
 
+
 h1 {
   font-size: 35px;
   text-align: center;
 }
+
+#sign-in {
+  display: block;
+  margin: 20px auto;
+}
+
+#sign-up {
+  display: block;
+  margin: 20px auto;
+}
+
+#show-game {
+  display: none;
+}
+
+.btn-create {
+  margin: 20px auto;
+  display: none;
+  max-width: 150px;
+}
+
+
+
+
 
 .btn-primary {
   float:left;
@@ -21,9 +46,21 @@ h1 {
 }
 
 .banner {
-  height: 50px;
-  width: 200px;
-  border: 2px solid black;
+  height: auto;
+  width: auto;
+  margin: 0 auto;
+  display: none;
+  margin-top: 35px;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  font-size: 25px;
+  font-weight: bolder;
+}
+
+.winner {
+  height: auto;
+  width: auto;
   margin: 0 auto;
   display: none;
   margin-top: 35px;

@@ -18,6 +18,7 @@ const onCreateGame = function (event) {
   event.preventDefault();
   //as soon as i create a new game show the board
   $('.board').show();
+  $('.btn-show').show();
   api.createGame(data)
   .then((response) => {
     //take what we get from the sever and put in store
@@ -84,6 +85,7 @@ const addHandlers = () => {
   $('.btn-create').on('click', function clear() {
       $('.field').html('');
       $('.banner').html('');
+      $('.winner').html('');
       gameOver = false;
       currentTurn = PlayerOne;
 

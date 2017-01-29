@@ -17,6 +17,7 @@ const onSignUp = function (event) {
 const onSignIn = function (event) {
   let data = getFormFields(event.target);
   event.preventDefault();
+  $('.btn-create').show();
   api.signIn(data)
     .then((response) => {
       store.user = response.user;
@@ -39,7 +40,8 @@ const onChangePassword = function (event) {
 
 const onSignOut = function (event) {
   event.preventDefault();
-
+  $('.board').hide();
+  $('.btn-create').hide();
   api.signOut()
     .then(() => {
       delete store.user;

@@ -32,10 +32,10 @@ const winningRows = [
 const makeMove = function (position, player) {
     gameBoard[position] = player;
     if (checkWin(player)) {
-      $('.banner').text(player + ' Wins!!').show();
+      $('.banner').text(player + ' Wins!! Play Again?').show();
     }
     if (checkDraw()) {
-      $('.banner').text( "It's a draw!!").show();
+      $('.banner').text( "It's a draw!! Play Again?").show();
     }
 
     gameApi.updateGame(position, player, checkGameOver(player) );
@@ -50,7 +50,6 @@ const checkWin = function (player) {
       let currentPosition = winningRows[i][y];
       if (gameBoard[currentPosition] === player) {
         positionStore.push(player);
-        console.log(positionStore);
       }
 
       if (positionStore.length > 2) {
