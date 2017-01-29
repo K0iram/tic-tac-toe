@@ -6,23 +6,24 @@
 </p>
 
 <p>In making this game I used the following technologies :
-
-* 	HTML
-* 	CSS
-* 	SCSS
-* 	Javascript
-* 	jQuery
-* 	Bootstrap
-
+    <ul>
+      <li>HTML</li>
+      <li>CSS</li>
+      <li>SCSS</li>
+      <li>Javascript</li>
+      <li>jQuery</li>
+      <li>Bootstrap</li>
+    </ul>
 </p>
 
 <p>Starting off I drew some crude wireframes modeling how I wanted the game to look like in the end. After that I started to build the games inner logic. From there I started adding authorization aspects so only register users could play the game and track there progress. Finally I set up the communication with the server. Sending AJAX requests to do things like:
 
-* 	Create a new game
-* 	Track All moves made
-* 	Determine if the game is over
-* 	Index all game played in order to see the statistics
-
+    <ul>
+    <li>Create a new game</li>
+    <li>Track All moves made</li>
+    <li>Determine if the game is over</li>
+    <li>Index all game played in order to see the statistics</li>
+    </ul>
 </p>
 
 <p>In the future I would like to come back to this project and try to simplify the logic. I would also like to display the game in a way that is easier on the user. All in all this game was very challenging but I think I am now a stronger programmer because of it.
