@@ -1,25 +1,114 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
-
-
 h1 {
-  font-size: 35px;
+  font-size: 60px;
   text-align: center;
+  font-family: 'chalky chicken';
+}
+
+#sign-in {
+  display: block;
+  margin: 20px auto;
+}
+
+#sign-up {
+  display: block;
+  margin: 20px auto;
+}
+
+#show-game {
+  display: none;
+}
+
+.btn-create {
+  margin: 20px auto;
+  display: none;
+}
+
+.banner {
+  height: auto;
+  width: auto;
+  margin: 0 auto;
+  display: none;
+  margin-top: 35px;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  font-size: 25px;
+  font-weight: bolder;
+}
+
+.winner {
+  height: auto;
+  width: auto;
+  margin: 0 auto;
+  display: none;
+  margin-top: 35px;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  font-size: 25px;
+  font-weight: bolder;
 }
 
 .board {
   height: 600px;
   width: 600px;
+  color: #fff;
+  background: #252525;
+  padding: 30px;
   margin: 0 auto;
+  display: none;
+  font-size: 10em;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
 .row {
-  height: 199px;
+  height: 33.3%;
 }
 
 
-.field{
-  border: 5px solid black;
+.field {
   display: block;
   height: 100%;
 }
+
+.board .row:nth-child(1),
+.board .row:nth-child(2){
+  border-bottom: 5px solid #fff;
+}
+
+.board .field:nth-child(2n){
+  border-left: 5px solid #fff;
+  border-right: 5px solid #fff;
+}
+
+.showgames {
+  height: auto;
+  width: auto;
+  margin: 0 auto;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  font-size: 25px;
+  font-weight: bolder;
+}
+
+
+
+
+@media (max-width: 599px) {
+  .board {
+    width: 320px;
+    height: 320px;
+  }
+
+  .field {
+    height: 85px;
+    text-align: center;
+    font-size: 35px;
+    padding-top: 15px;
+  }
+};
