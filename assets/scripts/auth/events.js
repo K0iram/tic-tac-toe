@@ -37,6 +37,8 @@ const onSignIn = function (event) {
       $('#signIn').modal('hide');
       $('.btn-create').show();
       $('.btn-index').show();
+      $('.banner').show();
+      $('.showgames').show();
       checkForUser();
       return store.user;
     })
