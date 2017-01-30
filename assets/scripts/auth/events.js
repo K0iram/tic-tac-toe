@@ -36,6 +36,7 @@ const onSignIn = function (event) {
       window.localStorage.setItem('user', JSON.stringify(response.user));
       $('#signIn').modal('hide');
       $('.btn-create').show();
+      $('.btn-index').show();
       checkForUser();
       return store.user;
     })
@@ -59,6 +60,9 @@ const onSignOut = function (event) {
 
       $('.board').hide();
       $('.btn-create').hide();
+      $('.btn-index').hide();
+      $('.banner').hide();
+      $('.showgames').hide();
 
       store.user = {};
       // remove local storage user copy.
