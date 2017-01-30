@@ -39,7 +39,9 @@ const onShowGame = function (event) {
 const onIndexGame = function (event) {
   event.preventDefault();
   api.indexGames()
-    .then(ui.success)
+    .then((response) => {
+      $('.showgames').text("You have played " + response.games.length + " games!!");
+    })
     .catch(ui.failure);
 };
 
@@ -53,11 +55,23 @@ const OnUpdateGame = function (position, currentTurn, gameOver) {
     .catch(ui.failure);
 };
 
+const checkForUser = function() {
+  //if user is already signed in
+  if(!!store.user.id){
+    $('.btn-sign-in').hide();
+    $('.btn-create').show();
+  } else {
+    $('#sign-out').hide();
+  }
+};
+
 
 const addHandlers = () => {
   $('.btn-create').on('click', onCreateGame);
   $('#show-game').on('submit', onShowGame);
   $('.btn-index').on('click', onIndexGame);
+
+  checkForUser();
 
   $('.field').on('click', function (event) {
     event.preventDefault();
@@ -91,12 +105,6 @@ const addHandlers = () => {
 
       ticTacToe.clearBoard();
     });
-
-  $("form").on("submit", function(event){
-    event.preventDefault();
-    let input = $("#name").val();
-    console.log(input);
-  });
 };
 
 

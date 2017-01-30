@@ -6,6 +6,18 @@ const api = require('./api');
 const ui = require('./ui');
 const store = require('..//store');
 
+const checkForUser = function() {
+  //if user is already signed in
+  if(!!store.user.id){
+    $('.btn-sign-in').hide();
+    $('.btn-create').show();
+    $('#sign-out').show();
+  } else {
+    $('#sign-out').hide();
+    $('.btn-sign-in').show();
+  }
+};
+
 const onSignUp = function (event) {
   let data = getFormFields(event.target);
   event.preventDefault();
@@ -17,12 +29,14 @@ const onSignUp = function (event) {
 const onSignIn = function (event) {
   let data = getFormFields(event.target);
   event.preventDefault();
-  $('.btn-create').show();
   api.signIn(data)
     .then((response) => {
       store.user = response.user;
       //keeps a copy of the user in local storage to keep  session open
       window.localStorage.setItem('user', JSON.stringify(response.user));
+      $('#signIn').modal('hide');
+      $('.btn-create').show();
+      checkForUser();
       return store.user;
     })
 
@@ -40,13 +54,16 @@ const onChangePassword = function (event) {
 
 const onSignOut = function (event) {
   event.preventDefault();
-  $('.board').hide();
-  $('.btn-create').hide();
   api.signOut()
     .then(() => {
-      delete store.user;
+
+      $('.board').hide();
+      $('.btn-create').hide();
+
+      store.user = {};
       // remove local storage user copy.
       window.localStorage.removeItem('user');
+      checkForUser();
       return store;
     })
     .then(ui.success)
@@ -59,7 +76,7 @@ const addHandlers = () => {
   $('#sign-up').on('submit', onSignUp);
   $('#sign-in').on('submit', onSignIn);
   $('#change-password').on('submit', onChangePassword);
-  $('#sign-out').on('submit', onSignOut);
+  $('#sign-out').on('click', onSignOut);
 };
 
 module.exports = {

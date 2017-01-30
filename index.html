@@ -10,27 +10,30 @@
       <!-- Do not add `script` tags unless you know what you are doing -->
       <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+      <style>
+        @import url('https://http://www.dafont.com/chalky-chicken.font');
+      </style>
+
     </head>
 
     <body>
 
-      <div class="userInfo">
-        <!-- Button trigger modal -->
-          <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-            Sign Up
-          </button>
-
-          <!-- Modal -->
-          <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-            <div class="modal-dialog" role="document">
+      <div class="container">
+        <nav>
+          <div class="sign-in">
+            <!-- Modal -->
+            <div class="modal fade" id="signIn" tabindex="-1" role="dialog" aria-labelledby="Sign In">
+              <div class="modal-dialog" role="document">
               <div class="modal-content">
-                <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                  <h4 class="modal-title" id="myModalLabel">New User</h4>
-                </div>
-                <div class="modal-body">
-                  <form id="sign-up">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="signIn">Sign In</h4>
+                  </div>
+                  <div class="modal-body">
+                    <div>
+                        <form id="sign-in">
                           <fieldset>
+                            <legend>Existing User Sign In</legend>
                               <label>
                               Email
                               <input type="text" name="credentials[email]">
@@ -39,96 +42,108 @@
                               Password
                               <input type="password" name="credentials[password]">
                               </label>
-                            <input type="submit" name="submit" value="Sign up!">
+                            <input type="submit" name="submit" value="Sign In!">
                           </fieldset>
                         </form>
+                      </div>
+                  </div>
+                  <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#signUp">
+                    Sign Up
+                  </button>
 
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-primary">Save changes</button>
+                  <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#changePass">
+                    Change Password
+                  </button>
+
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                  </div>
+
                 </div>
               </div>
             </div>
           </div>
 
+            <button id="sign-out" class="btn btn-primary btn-lg">Sign Out</button>
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary btn-lg btn-sign-in" data-toggle="modal" data-target="#signIn">
+              Sign In
+            </button>
+        <!-- Modal -->
+        <div class="modal fade" id="signUp" tabindex="-1" role="dialog" aria-labelledby="signUp">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="signUp" id="signUp">New User</h4>
+              </div>
+              <div class="modal-body">
+                <form id="sign-up">
+                        <fieldset>
+                            <label>
+                            Email
+                            <input type="text" name="credentials[email]">
+                            </label>
+                            <label>
+                            Password
+                            <input type="password" name="credentials[password]">
+                            </label>
+                            <label>
+                            Password Confirmation
+                            <input type="password" name="credentials[password_confirmation]">
+                            </label>
+                          <button type="submit">submit</button>
+                        </fieldset>
+                      </form>
 
-          <!-- Button trigger modal -->
-          <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-            Change Password
-          </button>
-
-          <!-- Modal -->
-          <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-            <div class="modal-dialog" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                  <h4 class="modal-title" id="myModalLabel">Change Password</h4>
-                </div>
-                <div class="modal-body">
-                  <form id="change-password">
-                    <fieldset>
-                      <legend>Change Password</legend>
-                        <label>
-                        OLD
-                        <input type="text" name="passwords[new]">
-                        </label>
-                        <label>
-                        NEW
-                        <input type="text" name="passwords[old]">
-                        </label>
-                    </fieldset>
-                  </form>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-primary">Save changes</button>
-                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
               </div>
             </div>
           </div>
+        </div>
 
-      <div>
-          <form id="sign-in">
-            <fieldset>
-              <legend>Existing User Sign In</legend>
-                <label>
-                Email
-                <input type="text" name="credentials[email]">
-                </label>
-                <label>
-                Password
-                <input type="password" name="credentials[password]">
-                </label>
-              <input type="submit" name="submit" value="Sign In!">
-            </fieldset>
-          </form>
+        <!-- Modal -->
+        <div class="modal fade" id="changePass" tabindex="-1" role="dialog" aria-labelledby="changePass">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="changePass" id="changePass">Change Password</h4>
+              </div>
+              <div class="modal-body">
+                <form id="change-password">
+                  <fieldset>
+                    <legend>Change Password</legend>
+                      <label>
+                      OLD
+                      <input type="text" name="passwords[new]">
+                      </label>
+                      <label>
+                      NEW
+                      <input type="text" name="passwords[old]">
+                      </label>
+                  </fieldset>
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+              </div>
+            </div>
+          </div>
+        </div>
 
-          <form id="sign-out">
-            <fieldset>
-              <input type="submit" name="submit" value="Sign Out!">
-            </fieldset>
-          </form>
-      </div>
+        </nav>
 
-      </div>
-
-      <div class="winner"></div>
-      <div class="banner"></div>
-      <button class="col-md-12 btn btn-create" type="submit" data-toggle="create" data-target=".board">Play New Game!</button>
-      <div>
-          <form id="show-game">
-              <fieldset>
-                  <label>
-                  Game ID
-                  <input type="text" name="game[id]">
-                  </label>
-              </fieldset>
-              <button class="col-md-12 btn btn-show" type="submit" data-toggle="show" data-target=".board">Show Games</button>
-          </form>
-      </div>
       <h1>Tic Tac Toe</h1>
+
+      <div class="game-actions">
+        <button class="col-md-12 btn btn-primary btn-create" type="submit" data-toggle="create" data-target=".board">Play New Game!</button>
+        <div class="winner"></div>
+        <div class="banner"></div>
+      </div>
 
       <div class="board">
         <div class="row">
@@ -148,7 +163,26 @@
         </div>
       </div>
 
-      <!-- <button class="col-md-12 btn btn-danger" type="reset" data-toggle="reset" data-target=".board">Play Again!</button> -->
+
+
+      <div>
+          <form id="show-game">
+              <fieldset>
+                  <label>
+                  Game ID
+                  <input type="text" name="game[id]">
+                  </label>
+              </fieldset>
+              <button class="col-md-12 btn btn-show" type="submit" data-toggle="show" data-target=".board">Show Games</button>
+          </form>
+      </div>
+    </div>
+
+    <button type="button" name="button" class="btn-index btn btn-primary">Show Games Played</button>
+
+    <div class="showgames">
+
+    </div>
 
     </body>
 

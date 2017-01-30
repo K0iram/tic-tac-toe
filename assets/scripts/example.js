@@ -34,7 +34,7 @@ const makeMove = function (position, player) {
     if (checkWin(player)) {
       $('.banner').text(player + ' Wins!! Play Again?').show();
     }
-    if (checkDraw()) {
+    if (checkDraw(player)) {
       $('.banner').text( "It's a draw!! Play Again?").show();
     }
 
@@ -62,7 +62,7 @@ const checkWin = function (player) {
 };
 
 //check each move for draw
-const checkDraw = function (){
+const checkDraw = function (currentTurn){
   let draw = false;
 
   // get an array of values from gameboard object
@@ -74,7 +74,7 @@ const checkDraw = function (){
       draw = false;
       break;
       //if no empty spaces have beeb found at end of array, the its a draw
-    } else if( i >= boardValues.length - 1){
+    } else if( i >= boardValues.length - 1 && !checkWin(currentTurn)){
       draw = true;
       break;
     }
@@ -84,7 +84,7 @@ const checkDraw = function (){
 };
 
 const checkGameOver = function (currentTurn){
-  return checkWin(currentTurn) || checkDraw();
+  return checkWin(currentTurn) || checkDraw(currentTurn);
 };
 
 
