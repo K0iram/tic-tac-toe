@@ -14,13 +14,17 @@ let gameOver = false;
 
 const onCreateGame = function (event) {
   let data = getFormFields(event.target);
-  gameOver = false;
   event.preventDefault();
-  //as soon as i create a new game show the board
-  $('.board').show();
-  $('.btn-show').show();
+  $('.board').hide();
+  $('.btn-show').hide();
+
   api.createGame(data)
   .then((response) => {
+
+    gameOver = false;
+    //as soon as i create a new game show the board
+    $('.board').show();
+    $('.btn-show').show();
     //take what we get from the sever and put in store
     store.game = response.game;
   })
