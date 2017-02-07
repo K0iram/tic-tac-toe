@@ -4,7 +4,7 @@ const getFormFields = require(`../../../lib/get-form-fields`);
 
 const api = require('./api');
 const ui = require('./ui');
-const store = require('..//store');
+const store = require('../store');
 
 const checkForUser = function() {
   //if user is already signed in
@@ -12,8 +12,10 @@ const checkForUser = function() {
     $('.btn-sign-in').hide();
     $('.btn-create').show();
     $('#sign-out').show();
+    $('.btn-change-pass').show();
   } else {
     $('#sign-out').hide();
+    $('.btn-change-pass').hide();
     $('.btn-sign-in').show();
   }
 };
@@ -39,6 +41,7 @@ const onSignIn = function (event) {
       $('.btn-index').show();
       $('.banner').show();
       $('.showgames').show();
+
       checkForUser();
       return store.user;
     })

@@ -64,8 +64,10 @@ const checkForUser = function() {
   if(!!store.user.id){
     $('.btn-sign-in').hide();
     $('.btn-create').show();
+    $('.btn-change-pass').show();
   } else {
     $('#sign-out').hide();
+    $('.btn-change-pass').hide();
   }
 };
 
