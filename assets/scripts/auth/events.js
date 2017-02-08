@@ -42,12 +42,14 @@ const onSignIn = function (event) {
       $('.banner').show();
       $('.showgames').show();
 
+
       checkForUser();
       return store.user;
     })
 
     .then(ui.success)
     .catch(ui.failure);
+      $('.wrongCred').text("Wrong username or password! Try again");
 };
 
 const onChangePassword = function (event) {
@@ -56,6 +58,7 @@ const onChangePassword = function (event) {
   api.changePassword(data)
     .then(ui.success)
     .catch(ui.failure);
+      $('.wrongCredChange').text("Cannot be same password! Try again!");
 };
 
 const onSignOut = function (event) {

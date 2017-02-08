@@ -106,6 +106,7 @@ const addHandlers = () => {
       $('.field').html('');
       $('.banner').html('');
       $('.winner').html('');
+      $('.showgames').html('');
       gameOver = false;
       currentTurn = PlayerOne;
 
