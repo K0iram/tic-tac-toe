@@ -93,7 +93,7 @@ const addHandlers = () => {
 
       gameOver = ticTacToe.checkGameOver(currentTurn);
 
-      console.log('CHECK GAME OVER:', ticTacToe.checkGameOver(currentTurn));
+      // console.log('CHECK GAME OVER:', ticTacToe.checkGameOver(currentTurn));
 
       //change player with ternary if currentturn = playerone than player two else player one
       currentTurn = currentTurn === PlayerOne ? PlayerTwo : PlayerOne;

@@ -58,7 +58,7 @@ const onChangePassword = function (event) {
   api.changePassword(data)
     .then(ui.success)
     .catch(ui.failure);
-      $('.wrongCredChange').text("Cannot be same password! Try again!");
+      // $('.wrongCredChange').text("Cannot be same password! Try again!");
 };
 
 const onSignOut = function (event) {
