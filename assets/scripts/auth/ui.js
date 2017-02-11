@@ -15,13 +15,6 @@ const checkForUser = function() {
   }
 };
 
-const changePasswordSuccess = () => {
-  $('#wrongCredChange').text('Password successfully changed!');
-  $('.changePasswordForm').val('');
-  $('#changePasswordModal').modal('hide');
-};
-
-
 const signUpFailure = (err) => {
 	if (err.status === 400) {
 		//unauthorized
@@ -99,7 +92,6 @@ const passwordChangeSuccess = () => {
 
 
 module.exports = {
-  changePasswordSuccess,
   signUpSuccess,
   signUpFailure,
   signInSuccess,

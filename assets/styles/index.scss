@@ -1,9 +1,11 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
+
 h1 {
-  font-size: 60px;
-  text-align: center;
   font-family: 'Rock Salt', cursive;
+  font-size: 60px;
+  padding-bottom: 20px;
+  text-align: center;
 }
 
 #sign-in {
@@ -16,18 +18,26 @@ h1 {
   margin: 20px auto;
 }
 
+#sign-out {
+  float: right;
+  background-color: #F00;
+}
+
 #show-game {
   display: none;
+  font-family: 'Rock Salt', cursive;
 }
 
 .btn-index {
-  display: none;
+  display: block;
+  margin: 0 auto;
+  width: 200px;
 }
 
 .btn-create {
-  margin: 20px auto;
+  display: block;
+  margin: 0 auto;
   width: 200px;
-  display: none;
 }
 
 .banner {
@@ -36,11 +46,13 @@ h1 {
   margin: 0 auto;
   display: none;
   margin-top: 35px;
+  padding-bottom: 20px;
   text-align: center;
   justify-content: center;
   align-items: center;
   font-size: 25px;
   font-weight: bolder;
+  font-family: 'Rock Salt', cursive;
 }
 
 .winner {
@@ -93,12 +105,14 @@ h1 {
 .showgames {
   height: auto;
   width: auto;
+  padding: 0 auto;
   margin: 0 auto;
   text-align: center;
   justify-content: center;
   align-items: center;
   font-size: 25px;
   font-weight: bolder;
+  font-family: 'Rock Salt', cursive;
 }
 
 .alert {
