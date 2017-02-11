@@ -1,4 +1,5 @@
 'use strict';
+const store = require('../store');
 
 const checkForUser = function() {
   //if user is already signed in
@@ -24,7 +25,7 @@ const changePasswordSuccess = () => {
 const signUpFailure = (err) => {
 	if (err.status === 400) {
 		//unauthorized
-		$('.signUpMessage').text("A user with that email already exists.");
+		$('.signUpMessage').text("Something went wrong. Check your email/password.");
 	} else {
 		$('.signUpMessage').text("An unknown error occured.");
 	}
@@ -44,6 +45,10 @@ const signInSuccess = (resp) => {
 	$('.btn-index').show();
 	$('.banner').show();
 	$('.showgames').show();
+  $('.alert span').text('You have signed is as ' + resp.user.email);
+	$('.alert').slideDown();
+
+	$('.alert').delay(2000).slideUp();
 
 
 	checkForUser();
