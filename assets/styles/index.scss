@@ -45,28 +45,28 @@ h1 {
   width: auto;
   margin: 0 auto;
   display: none;
-  margin-top: 35px;
-  padding-bottom: 20px;
+  margin-top: 10px;
+  padding-bottom: 10px;
   text-align: center;
   justify-content: center;
   align-items: center;
-  font-size: 25px;
+  font-size: 20px;
   font-weight: bolder;
   font-family: 'Rock Salt', cursive;
 }
 
-.winner {
-  height: auto;
-  width: auto;
-  margin: 0 auto;
-  display: none;
-  margin-top: 35px;
-  text-align: center;
-  justify-content: center;
-  align-items: center;
-  font-size: 25px;
-  font-weight: bolder;
-}
+// .winner {
+//   height: auto;
+//   width: auto;
+//   margin: 0 auto;
+//   display: none;
+//   margin-top: 35px;
+//   text-align: center;
+//   justify-content: center;
+//   align-items: center;
+//   font-size: 25px;
+//   font-weight: bolder;
+// }
 
 .board {
   height: 450px;
@@ -75,6 +75,7 @@ h1 {
   background: #252525;
   padding: 30px;
   margin: 0 auto;
+  margin-bottom: 10px;
   display: none;
   font-size: 6em;
   justify-content: center;
@@ -106,6 +107,7 @@ h1 {
   height: auto;
   width: auto;
   padding: 0 auto;
+  padding-top: 5px;
   margin: 0 auto;
   text-align: center;
   justify-content: center;
