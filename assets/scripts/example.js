@@ -101,7 +101,7 @@ const clearBoard = function () {
     8: null,
   };
 
-  console.log(gameBoard);
+  // console.log(gameBoard);
 };
 
 module.exports = {

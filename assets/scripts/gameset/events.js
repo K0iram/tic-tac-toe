@@ -65,9 +65,12 @@ const checkForUser = function() {
     $('.btn-sign-in').hide();
     $('.btn-create').show();
     $('.btn-change-pass').show();
+    $('.btn-index').show();
   } else {
     $('#sign-out').hide();
     $('.btn-change-pass').hide();
+    $('.btn-index').hide();
+    $('.btn-create').hide();
   }
 };
 
