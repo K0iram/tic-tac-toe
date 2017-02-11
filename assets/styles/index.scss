@@ -69,14 +69,14 @@ h1 {
 }
 
 .board {
-  height: 600px;
-  width: 600px;
+  height: 450px;
+  width: 450px;
   color: #fff;
   background: #252525;
   padding: 30px;
   margin: 0 auto;
   display: none;
-  font-size: 10em;
+  font-size: 6em;
   justify-content: center;
   align-items: center;
   text-align: center;
@@ -119,7 +119,7 @@ h1 {
   display: none;
 }
 
-@media (max-width: 599px) {
+@media (max-width: 449px) {
   .board {
     width: 320px;
     height: 320px;
