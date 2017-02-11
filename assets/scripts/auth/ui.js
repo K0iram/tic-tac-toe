@@ -33,7 +33,7 @@ const signUpFailure = (err) => {
 
 const signUpSuccess = (resp) => {
 	$('#signUp').modal('hide');
-	$('#sign-in input[name=credentials[email]').val(resp.email)
+	$('#sign-in input[name=credentials[email]').val(resp.email);
 };
 
 const signInSuccess = (resp) => {
@@ -89,10 +89,10 @@ const passwordChangeFailure = (err) => {
 
 const passwordChangeSuccess = (resp) => {
 	$('#changePassword').modal('hide');
-	$('.alert span').text('You have sucessfully changed your password!')
-	$('.alert').slideDown()
+	$('.alert span').text('You have sucessfully changed your password!');
+	$('.alert').slideDown();
 
-	$('.alert').delay(2000).slideUp()
+	$('.alert').delay(2000).slideUp();
 };
 
 
