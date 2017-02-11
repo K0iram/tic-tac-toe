@@ -55,11 +55,13 @@ const signInSuccess = (resp) => {
 	return store.user;
 };
 
-const signOutSuccess = (resp) => {
+const signOutSuccess = () => {
 	$('.board').hide();
 	$('.btn-create').hide();
 	$('.btn-index').hide();
+  $('.banner').text('');
 	$('.banner').hide();
+  $('.showgames').text('');
 	$('.showgames').hide();
 
 	store.user = {};
@@ -87,7 +89,7 @@ const passwordChangeFailure = (err) => {
 	}
 };
 
-const passwordChangeSuccess = (resp) => {
+const passwordChangeSuccess = () => {
 	$('#changePassword').modal('hide');
 	$('.alert span').text('You have sucessfully changed your password!');
 	$('.alert').slideDown();
