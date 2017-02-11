@@ -26,7 +26,7 @@ const signUpFailure = (err) => {
 
 const signUpSuccess = (resp) => {
 	$('#signUp').modal('hide');
-	$('#sign-in input[name=credentials[email]').val(resp.email);
+  $('.wrongCred').text("Thanks for signing up! Please sign in to play!");
 };
 
 const signInSuccess = (resp) => {
