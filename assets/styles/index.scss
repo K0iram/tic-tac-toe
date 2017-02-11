@@ -4,7 +4,6 @@ h1 {
   font-size: 60px;
   text-align: center;
   font-family: 'Rock Salt', cursive;
-;
 }
 
 #sign-in {
@@ -75,12 +74,10 @@ h1 {
   height: 33.3%;
 }
 
-
 .field {
   display: block;
   height: 100%;
   font-family: 'Rock Salt', cursive;
-
 }
 
 .board .row:nth-child(1),
@@ -104,8 +101,9 @@ h1 {
   font-weight: bolder;
 }
 
-
-
+.alert {
+  display: none;
+}
 
 @media (max-width: 599px) {
   .board {

@@ -15,6 +15,7 @@
     </head>
 
     <body>
+    <div class="alert alert-success alert-dismissible"><a class="close" data-dismiss="alert">×</a><span class="alert-message"></span></div>
 
       <div class="container">
         <nav>
@@ -89,6 +90,7 @@
                               </label>
                             <button type="submit">submit</button>
                           </fieldset>
+                          <div class="signUpMessage"></div>
                         </form>
 
                 </div>
@@ -119,15 +121,15 @@
                       <legend>Change Password</legend>
                         <label>
                         OLD
-                        <input type="text" name="passwords[old]">
+                        <input type="password" name="passwords[old]">
                         </label>
                         <label>
                         NEW
-                        <input type="text" name="passwords[new]">
+                        <input type="password" name="passwords[new]">
                         </label>
                         <input type="submit" name="submit" value="Submit">
                     </fieldset>
-                    <div class="wrongCredChange"></div>
+                    <div class="password-message"></div>
                   </form>
                 </div>
                 <div class="modal-footer">
