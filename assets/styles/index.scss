@@ -8,9 +8,13 @@ h1 {
   text-align: center;
 }
 
+nav {
+  padding-top: 10px;
+}
+
 #sign-in {
   display: block;
-  margin: 20px auto;
+  margin: 0 auto;
 }
 
 #sign-up {
@@ -19,8 +23,8 @@ h1 {
 }
 
 #sign-out {
+  background-color: #f00;
   float: right;
-  background-color: #F00;
 }
 
 #show-game {
