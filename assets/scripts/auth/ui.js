@@ -33,7 +33,8 @@ const signInSuccess = (resp) => {
 	store.user = resp.user;
 	//keeps a copy of the user in local storage to keep  session open
 	window.localStorage.setItem('user', JSON.stringify(resp.user));
-	$('#signIn').modal('hide');
+  $("#sign-in")[0].reset();
+  $('#signIn').modal('hide');
 	$('.btn-create').show();
 	$('.btn-index').show();
 	$('.banner').show();
@@ -83,7 +84,9 @@ const passwordChangeFailure = (err) => {
 };
 
 const passwordChangeSuccess = () => {
-	$('#changePassword').modal('hide');
+  $("#change-password")[0].reset();
+  $('.password-message').text('');
+  $('#changePassword').modal('hide');
 	$('.alert span').text('You have sucessfully changed your password!');
 	$('.alert').slideDown();
 
