@@ -25,7 +25,8 @@ const signUpFailure = (err) => {
 };
 
 const signUpSuccess = (resp) => {
-	$('#signUp').modal('hide');
+  $("#sign-up")[0].reset();
+  $('#signUp').modal('hide');
   $('.wrongCred').text("Thanks for signing up! Please sign in to play!");
 };
 
