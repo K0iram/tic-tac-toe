@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>Tic Tac Mario</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <!-- Do not add `link` tags unless you know what you are doing -->
+      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+      <!-- Do not add `script` tags unless you know what you are doing -->
+      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+      <link href="https://fonts.googleapis.com/css?family=Rock+Salt" rel="stylesheet">
+
+    </head>
+
+    <body>
+    <div class="alert alert-success alert-dismissible"><a class="close" data-dismiss="alert">×</a><span class="alert-message"></span></div>
+
+      <div class="container">
+        <nav>
+            <div class="sign-in">
+              <!-- Modal -->
+              <div class="modal fade" id="signIn" tabindex="-1" role="dialog" aria-labelledby="Sign In">
+                <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                      <h4 class="signIn">Sign In</h4>
+                    </div>
+                    <div class="modal-body">
+                      <div>
+                          <form id="sign-in">
+                            <fieldset>
+                              <legend>Existing User Sign In</legend>
+                                <label>
+                                Email
+                                <input type="text" name="credentials[email]">
+                                </label>
+                                <label>
+                                Password
+                                <input type="password" name="credentials[password]">
+                                </label>
+                              <input type="submit" name="submit" value="Sign In!">
+                            </fieldset>
+                            <div class="wrongCred"></div>
+                          </form>
+                        </div>
+                    </div>
+                    <legend>Don't have a username? Sign up here!</legend>
+                    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#signUp">
+                      Sign Up
+                    </button>
+
+
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+              <!-- Button trigger modal -->
+              <button type="button" class="btn btn-primary btn-lg btn-sign-in" data-toggle="modal" data-target="#signIn">
+                Sign In to Play!
+              </button>
+          <!-- Modal -->
+          <div class="modal fade" id="signUp" tabindex="-1" role="dialog" aria-labelledby="signUp">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                  <h4 class="signUp" id="signUp">New User</h4>
+                </div>
+                <div class="modal-body">
+                  <form id="sign-up">
+                          <fieldset>
+                              <label>
+                              Email
+                              <input type="text" name="credentials[email]">
+                              </label>
+                              <label>
+                              Password
+                              <input type="password" name="credentials[password]">
+                              </label>
+                              <label>
+                              Password Confirmation
+                              <input type="password" name="credentials[password_confirmation]">
+                              </label>
+                            <button type="submit">submit</button>
+                          </fieldset>
+                          <div class="signUpMessage"></div>
+                        </form>
+
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Button trigger modal -->
+          <button type="button" class="btn btn-primary btn-change-pass" data-toggle="modal" data-target="#changePassword">
+            Change Password
+          </button>
+          <!-- Modal -->
+          <div class="modal fade" id="changePassword" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="changePassword">Change Password</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <form id="change-password">
+                    <fieldset>
+                      <legend>Change Password</legend>
+                        <label>
+                        OLD
+                        <input type="password" name="passwords[old]">
+                        </label>
+                        <label>
+                        NEW
+                        <input type="password" name="passwords[new]">
+                        </label>
+                        <input type="submit" name="submit" value="Submit">
+                    </fieldset>
+                    <div class="password-message"></div>
+                  </form>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button id="sign-out" class="btn btn-primary btn-lg ">Sign Out</button>
+        </nav>
+
+
+      <h1>Tic Tac Toe</h1>
+
+      <div class="game-actions">
+        <button class="btn btn-primary btn-create" type="submit" data-toggle="create" data-target=".board" style="display: block;">Play New Game!</button>
+        <div class="winner"></div>
+        <div class="banner"></div>
+      </div>
+
+      <div class="board">
+        <div class="row">
+          <div class="col-xs-4 field" data-position="0"></div>
+          <div class="col-xs-4 field" data-position="1"></div>
+          <div class="col-xs-4 field" data-position="2"></div>
+        </div>
+        <div class="row">
+          <div class="col-xs-4 field" data-position="3"></div>
+          <div class="col-xs-4 field" data-position="4"></div>
+          <div class="col-xs-4 field" data-position="5"></div>
+        </div>
+        <div class="row">
+          <div class="col-xs-4 field" data-position="6"></div>
+          <div class="col-xs-4 field" data-position="7"></div>
+          <div class="col-xs-4 field" data-position="8"></div>
+        </div>
+      </div>
+    </div>
+
+<!--
+      <div>
+          <form id="show-game">
+              <fieldset>
+                  <label>
+                  Game ID
+                  <input type="text" name="game[id]">
+                  </label>
+              </fieldset>
+              <button class="col-md-12 btn btn-show" type="submit" data-toggle="show" data-target=".board">Show Games</button>
+          </form>
+      </div> -->
+    <!-- </div> -->
+
+    <button type="button" name="button" class="btn-index btn btn-primary" style="display: block;">Show Games Played</button>
+
+    <div class="showgames"></div>
+
+    </body>
+
+</html>
